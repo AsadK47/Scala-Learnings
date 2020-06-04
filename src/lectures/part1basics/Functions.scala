@@ -69,14 +69,21 @@ object Functions extends App {
   println(froggy(4))
 
   def isPrime(n: Int): Boolean = {
+    @scala.annotation.tailrec
     def isPrimeUntil(t: Int): Boolean = {
+      println("N is " + n + " and T is " + t)
       if (t <= 1) true
-      else n % t != 0 && isPrimeUntil(t - 1)
+      else  n % t != 0 && isPrimeUntil(t - 1)
     }
+
     isPrimeUntil(n / 2)
   }
 
-  println(isPrime(37))
-  println(isPrime(2003))
-  println(isPrime(37 * 17))
+  println(isPrime(9))
+
+  def checkDiv(): Int = {
+    9 / 2
+  }
+
+  println(checkDiv())
 }
