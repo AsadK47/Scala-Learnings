@@ -46,10 +46,37 @@ object Functions extends App {
 
   greetingFunction("Asad", 25)
 
-  def factorialFunction(n: Int): Unit = {
-    if (n <= 2) return n
+  def factorialFunction(n: Int): Int = {
+    if (n <= 2) n
     else n * factorialFunction(n - 1)
   }
 
-  factorialFunction(3)
+  println(factorialFunction(3))
+
+  def fibonacciFunction(n: Int): Int = {
+    if (n == 0 || n == 1) n
+    else fibonacciFunction(n - 2) + fibonacciFunction(n - 1)
+  }
+
+  println(fibonacciFunction(3))
+
+  def froggy(n: Int): Int = {
+    if (n == 2) 2
+    else if (n < 2) 1
+    else froggy(n - 1) + froggy(n - 2)
+  }
+
+  println(froggy(4))
+
+  def isPrime(n: Int): Boolean = {
+    def isPrimeUntil(t: Int): Boolean = {
+      if (t <= 1) true
+      else n % t != 0 && isPrimeUntil(t - 1)
+    }
+    isPrimeUntil(n / 2)
+  }
+
+  println(isPrime(37))
+  println(isPrime(2003))
+  println(isPrime(37 * 17))
 }
