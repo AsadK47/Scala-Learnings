@@ -14,6 +14,17 @@ object Recursion extends App {
 
   println(factorial(1))
 
+  def fact(n: Int): Int = {
+    @scala.annotation.tailrec
+    def helper(t: Int, acc: Int): Int = {
+      if (t <= 1) acc
+      else helper(t - 1, t * acc)
+    }
+    helper(n, 1)
+  }
+
+  println(fact(5))
+
   def anotherFactorial(n: Int): BigInt = {
     @scala.annotation.tailrec
     def factHelper(x: Int, accumulator: BigInt): BigInt = {
@@ -65,14 +76,15 @@ object Recursion extends App {
     isPrimeTailRec(n / 2, isStillPrime = true)
   }
 
-//  def fibonacci(n: Int): Int = {
-//    def fibHelper(t: Int, accumulator: Int) = {
-//      if (n <= 2) accumulator
-//      else f
-//    }
-//
-//    fibHelper(n )
-//  }
-//
-//  println(fibonacci(3))
+  def fibonacci(n: Int): Int = {
+    def fibTailRec(t: Int, last: Int, nextToLast: Int): Int = {
+      if (t >= n) last
+      else fibTailRec(t + 1, last + nextToLast, last)
+    }
+
+    if (n <= 2) 1
+    else fibTailRec(2, 1, 1)
+  }
+
+  println(fibonacci(8))
 }
