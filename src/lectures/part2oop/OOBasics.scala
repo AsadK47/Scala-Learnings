@@ -84,12 +84,12 @@ class Novel(name: String, yearOfRelease: Int, author: Writer) {
 }
 
 class Counter(val count: Int = 0) {
-  def inc = {
+  def inc: Counter = {
     println("incrementing")
     new Counter(count + 1) // immutability
   }
 
-  def dec = {
+  def dec: Counter = {
     println("decrementing")
     new Counter(count - 1)
   }
