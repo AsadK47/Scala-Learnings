@@ -21,11 +21,6 @@ object MethodNotations extends App {
 
   val mary = new Person("Mary", "Inception", 25)
 
-  println((mary + "the rockstar").apply())
-  println((+mary).age)
-  println(mary learnsScala)
-  println(mary(2))
-
   println(mary.likes("Inception"))
   println(mary likes "Inception") // equivalent
   // infix notation == operator notation (an example of syntactic sugar)
@@ -72,4 +67,9 @@ object MethodNotations extends App {
     4. Overload the apply method
        mary.apply(2) => "Mary watched Inception 2 times"
    */
+
+  println((mary + "the rockstar").apply())
+  println((+mary).age)
+  println(mary learnsScala)
+  println(mary(2))
 }
