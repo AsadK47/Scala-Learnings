@@ -17,21 +17,21 @@ object Objects extends App {
   }
   // COMPANIONS
 
-  def main(args: Array[String]): Unit = {
-    println(Person.N_EYES)
-    println(Person.canFly)
-
-    // Scala object = SINGLETON INSTANCE
-    val mary = new Person("Mary")
-    val john = new Person("John")
-    println(mary == john)
-
-    val person1 = Person
-    val person2 = Person
-    println(person1 == person2)
-
-    val bobbie = Person.from(mary, john)
-  }
+//  def main(args: Array[String]): Unit = {
+//    println(Person.N_EYES)
+//    println(Person.canFly)
+//
+//    // Scala object = SINGLETON INSTANCE
+//    val mary = new Person("Mary")
+//    val john = new Person("John")
+//    println(mary == john)
+//
+//    val person1 = Person
+//    val person2 = Person
+//    println(person1 == person2)
+//
+//    val bobbie = Person.from(mary, john)
+//  }
   // Scala Applications = Scala object with
   // def main(args: Array(String)): Unit
 }
