@@ -8,7 +8,25 @@ abstract class MyList {
       add(int) => new list with this element added
       toString => a string representation of the list
    */
-  val list: List[Int] = List(1, 2, 3)
+  val myList: List[Int] = List(1, 2, 3)
 
+  def getHead: Int = {
+    myList.head
+  }
 
+  def getTail: List[Int] = {
+    myList.tail
+  }
+
+  def isEmpty: Boolean = {
+    myList.isEmpty
+  }
+
+  def add(intToAdd: Int): Unit = {
+    myList :+ intToAdd
+  }
+
+  override def toString: String = {
+    myList.toString()
+  }
 }
