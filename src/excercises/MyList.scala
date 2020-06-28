@@ -1,32 +1,71 @@
 package excercises
 
+//abstract class MyList {
+//  /*
+//      head = first element of the list
+//      tail = remainder of the list
+//      isEmpty = is this list empty
+//      add(int) => new list with this element added
+//      toString => a string representation of the list
+//   */
+//  val myList: List[Int] = List(1, 2, 3)
+//
+//  def getHead: Int = {
+//    myList.head
+//  }
+//
+//  def getTail: List[Int] = {
+//    myList.tail
+//  }
+//
+//  def isEmpty: Boolean = {
+//    myList.isEmpty
+//  }
+//
+//  def add(intToAdd: Int): Unit = {
+//    myList :+ intToAdd
+//  }
+//
+//  override def toString: String = {
+//    myList.toString()
+//  }
+//}
+
 abstract class MyList {
-  /*
-      head = first element of the list
-      tail = remainder of the list
-      isEmpty = is this list empty
-      add(int) => new list with this element added
-      toString => a string representation of the list
-   */
-  val myList: List[Int] = List(1, 2, 3)
+  def head: Int
+  def tail: MyList
+  def isEmpty: Boolean
+  def add(element: Int): MyList
+  def printElements: String
+  // polymorphic call
+  override def toString: String = "[" + printElements + "]"
+}
 
-  def getHead: Int = {
-    myList.head
-  }
+object Empty extends MyList {
+  override def head: Int = throw new NoSuchElementException
+  override def tail: MyList = throw new NoSuchElementException
+  override def isEmpty: Boolean = true
+  override def add(element: Int): MyList = new Cons(element, Empty)
+  override def printElements: String = ???
+}
 
-  def getTail: List[Int] = {
-    myList.tail
-  }
+class Cons(h: Int, t: MyList) extends MyList {
+  override def head: Int = h
+  override def tail: MyList = t
+  override def isEmpty: Boolean = false
+  override def add(element: Int): MyList = new Cons(element, this)
 
-  def isEmpty: Boolean = {
-    myList.isEmpty
+  override def printElements: String = {
+    if (t.isEmpty) "" + head
+    else h + " " + t.printElements
   }
+}
 
-  def add(intToAdd: Int): Unit = {
-    myList :+ intToAdd
-  }
+object ListTest extends App {
+  val list = new Cons(1, new Cons(2, new Cons(3, Empty)))
+  println(list.tail.head)
+  println(list.add(4).head)
+  println(list.isEmpty)
 
-  override def toString: String = {
-    myList.toString()
-  }
+  println(list.toString)
 }
