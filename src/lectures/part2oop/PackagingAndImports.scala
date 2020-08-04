@@ -1,8 +1,9 @@
 package lectures.part2oop
 
-import playground.{Cinderella => Princess, PrinceCharming}
-import java.util.Date
 import java.sql.{Date => SqlDate}
+import java.util.Date
+
+import playground.{PrinceCharming, Cinderella => Princess}
 
 object PackagingAndImports extends App {
 
